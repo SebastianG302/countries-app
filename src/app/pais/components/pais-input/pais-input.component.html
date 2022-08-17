@@ -1,3 +1,10 @@
-<form (ngSubmit)="buscar()" autocomplete="off">
-    <input class="form-control" [(ngModel)]="termino" type="text" name="termino" placeholder="not working">
-</form>
+
+<form (ngSubmit)="emitirBuscar()" autocomplete="off">
+    <input class="form-control"
+    [(ngModel)]="termino"
+    type="text"
+    name="termino"
+    placeholder="Example: Colombia"
+    (input)="teclaPresionada()"
+    >
+</form><!--(input) se ejecuta el metodo teclaPresionada() cada vez que se presione una tecla-->

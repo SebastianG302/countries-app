@@ -17,9 +17,11 @@ export class PorPaisComponent {
   constructor(private paisService: PaisService) { }
 
 
-  buscar() {
+  buscar( termino: string) {
+
+    this.termino = termino
     this.hayError = false
-    console.log(this.termino);
+
     //se recibe el Observable de tipo pais y se hace el suscribe
     this.paisService.buscarPais(this.termino)
       .subscribe((paises) => {
@@ -32,4 +34,9 @@ export class PorPaisComponent {
         }
       )
   }
+
+  sugerencias( termino: string){
+    this.hayError = false
+  }
 }
+
