@@ -13,9 +13,14 @@ export class PaisService {
   //Se inicializa el servicio http
   constructor( private http: HttpClient) { }
 
-  buscarPais( termino: string ): Observable<any>{
+  buscarPais( termino: string ): Observable<Country[]>{
     const url = `${ this.apiUrl }/name/${ termino }`;
     //retorna un Observable de tipo Country
     return this.http.get<Country[]>( url )
+  }
+
+  buscarPorCapital( termino: string ): Observable<Country[]>{
+    const url = `${this.apiUrl }/capital/${ termino }`;
+    return this.http.get<Country[]>(url)
   }
 }

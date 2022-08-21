@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit, Input } from '@angular/core';
 import { debounce, debounceTime, Subject } from 'rxjs';
 
 @Component({
@@ -11,8 +11,11 @@ export class PaisInputComponent implements OnInit{
   @Output() onEnter   : EventEmitter<string> = new EventEmitter();
   @Output() onDebounce: EventEmitter<string> = new EventEmitter();
 
+  @Input() placeholder: string = "";
+
   dobouncer: Subject<string> = new Subject; //Subject es un observable al que se puede suscribir
 
+  
   termino: string = ''
   constructor() { }
 
@@ -22,6 +25,7 @@ export class PaisInputComponent implements OnInit{
 
   //Este metodo se ejecuta cada vez que el usuario presiona una tecla
   teclaPresionada(){
+    console.log('a')
     this.dobouncer.next( this.termino ) //next envia mensajes a un observable
   }
 

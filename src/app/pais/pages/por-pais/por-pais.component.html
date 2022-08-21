@@ -4,6 +4,7 @@
     <div class="row">
         <app-pais-input
             (onEnter)="buscar( $event)"
+            placeholder="Write a country..."
             (onDebounce)="sugerencias( $event )"
         ></app-pais-input>
     </div>
