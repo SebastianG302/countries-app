@@ -16,11 +16,16 @@ export class PaisService {
   buscarPais( termino: string ): Observable<Country[]>{
     const url = `${ this.apiUrl }/name/${ termino }`;
     //retorna un Observable de tipo Country
-    return this.http.get<Country[]>( url )
+    return this.http.get<Country[]>( url );
   }
 
   buscarPorCapital( termino: string ): Observable<Country[]>{
     const url = `${this.apiUrl }/capital/${ termino }`;
-    return this.http.get<Country[]>(url)
+    return this.http.get<Country[]>(url);
+  }
+
+  getPaisPorAlpha( termino: string ): Observable<Country[]>{
+    const url = `${this.apiUrl }/alpha/${ termino }`;
+    return this.http.get<Country[]>(url);
   }
 }
