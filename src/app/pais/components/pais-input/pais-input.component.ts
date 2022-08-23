@@ -25,7 +25,6 @@ export class PaisInputComponent implements OnInit{
 
   //Este metodo se ejecuta cada vez que el usuario presiona una tecla
   teclaPresionada(){
-    console.log('a')
     this.dobouncer.next( this.termino ) //next envia mensajes a un observable
   }
 
@@ -38,7 +37,6 @@ export class PaisInputComponent implements OnInit{
       debounceTime(300)
     )
     .subscribe( valor => {
-      console.log(valor)
       this.onDebounce.emit( valor ) //emite el valor por el output
     })
   }

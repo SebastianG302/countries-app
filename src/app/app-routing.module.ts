@@ -22,7 +22,7 @@ const routes: Routes = [
         component: PorCapitalComponent
     },
     {
-        path: 'pais/:id',
+        path: 'pais/:id', //Es lo que recibimos en el componente ver-pais en el activateRoute
         component: VerPaisComponent
     },
     {
