@@ -8,7 +8,7 @@ import { Country } from '../interfaces/pais-interface';
 })
 export class PaisService {
 
-  private apiUrl: string = 'https://restcountries.com/v3.1/'
+  private apiUrl: string = 'https://restcountries.com/v3.1'
 
   //Se inicializa el servicio http
   constructor( private http: HttpClient) { }
@@ -23,9 +23,9 @@ export class PaisService {
     const url = `${this.apiUrl }/capital/${ termino }`;
     return this.http.get<Country[]>(url);
   }
-
-  getPaisPorAlpha( termino: string ): Observable<Country[]>{
-    const url = `${this.apiUrl }/alpha/${ termino }`;
-    return this.http.get<Country[]>(url);
+  getPaisPorAlpha( id: string | null):Observable<Country[]>{
+    const url = `${ this.apiUrl }/alpha/${ id }`;
+    return this.http.get<Country[]>( url );
   }
+
 }
