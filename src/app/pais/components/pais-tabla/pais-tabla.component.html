@@ -1,16 +1,16 @@
-<table class="table table-responsive table-hover">
+<table class="table">
     <thead>
         <tr>
-            <th> # </th>
-            <th> Flag </th>
-            <th> Official name </th>
-            <th> Capital </th>
-            <th> Population </th>
+            <th scope="col"> # </th>
+            <th scope="col"> Flag </th>
+            <th scope="col"> Official name </th>
+            <th scope="col"> Capital </th>
+            <th scope="col"> Population </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let pais of paises; let i = index">
-            <td> {{i+1}} </td>
+            <td scope="row"> {{i+1}} </td>
             <td> <img src="{{pais.flags.png}}" class="small-img" ></td>
             <td> <a [routerLink]="['/pais', pais.cca2]">{{pais.name.official}}</a></td>
             <td>{{pais.capital}}</td>
