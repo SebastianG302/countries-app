@@ -30,7 +30,6 @@ export class VerPaisComponent implements OnInit {
     this.paisService.getPaisPorAlpha(id)
       .subscribe((pais) => {
         this.pais = pais[0];
-        console.log(this.pais.population)
       })
 
   }

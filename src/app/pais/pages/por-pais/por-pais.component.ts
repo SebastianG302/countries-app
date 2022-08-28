@@ -25,7 +25,6 @@ export class PorPaisComponent {
     //se recibe el Observable de tipo pais y se hace el suscribe
     this.paisService.buscarPais(this.termino)
       .subscribe((paises) => {
-        console.log(paises)
         this.paises = paises;
       },
         (err) => {
