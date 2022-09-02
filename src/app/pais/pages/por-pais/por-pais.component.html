@@ -1,12 +1,9 @@
-<section>
+<section class="animate__animated animate__fadeIn animate__faster">
     <h2>Search country</h2>
     <hr>
     <div class="row">
-        <app-pais-input
-            (onEnter)="buscar( $event)"
-            placeholder="Write a country..."
-            (onDebounce)="sugerencias( $event )"
-        ></app-pais-input>
+        <app-pais-input (onEnter)="buscar( $event)" placeholder="Write a country..."
+            (onDebounce)="sugerencias( $event )"></app-pais-input>
     </div>
     <div *ngIf="hayError" class="alert alert-danger mt-4">No se encontró nada con el termino {{termino}}</div>
 </section>
