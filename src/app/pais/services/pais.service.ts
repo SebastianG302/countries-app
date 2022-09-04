@@ -35,8 +35,5 @@ export class PaisService {
 
     const url = `${ this.apiUrl }/region/${ termino }`;
     return this.http.get<Country[]>(url, {params: this.httpParams})
-      .pipe(
-        tap( a => console.log(a))
-      )
   }
 }
