@@ -13,6 +13,9 @@ export class PorPaisComponent {
   hayError: boolean = false;
   paises: Country[] = [];
 
+  paisesSugeridos : Country[] = [];
+  mostrarSugerencias = false;
+
   //Se inicializa el servicio PaisService
   constructor(private paisService: PaisService) { }
 
@@ -21,6 +24,7 @@ export class PorPaisComponent {
 
     this.termino = termino
     this.hayError = false
+
 
     //se recibe el Observable de tipo pais y se hace el suscribe
     this.paisService.buscarPais(this.termino)
@@ -35,7 +39,20 @@ export class PorPaisComponent {
   }
 
   sugerencias( termino: string){
-    this.hayError = false
+    this.hayError = false;
+    this.termino = termino;
+    this.mostrarSugerencias = true;
+
+    this.paisService.buscarPais( termino )
+      .subscribe( paises => this.paisesSugeridos = paises.splice(0,5),
+        (err) => this.paisesSugeridos = []
+      );
+  }
+
+  buscarSugerido( termino: string ){
+    this.buscar( termino );
+    this.mostrarSugerencias = false;
+
   }
 }
 
